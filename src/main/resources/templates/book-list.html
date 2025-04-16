@@ -7,7 +7,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="format-detection" content="telephone=no">
-	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="mobile-web-app-capable" content="yes">
 	<meta name="author" content="">
 	<meta name="keywords" content="">
 	<meta name="description" content="">
@@ -96,11 +96,13 @@
 						<div class="title">
 							<span>Some quality items</span>
 						</div>
-						<h2 class="section-title">Featured Books</h2>
+						<h2 class="section-title">All Books</h2>
 					</div>
 
 					<div class="product-list" data-aos="fade-up">
-						<div class="row" id="featuredBookContainer">
+						<div class="row" id="featuredBooksContainer">
+
+							<!-- showing list of books dynamically  -->
 
 							
 
@@ -108,13 +110,14 @@
 
 							
 
-							
+						</div>
+						<!--ft-books-slider-->
+					</div>
+					<!--grid-->
 
-						</div><!--ft-books-slider-->
-					</div><!--grid-->
 
-
-				</div><!--inner-content-->
+				</div>
+				<!--inner-content-->
 			</div>
 
 			
@@ -279,13 +282,14 @@
        
        
        
-   <script src="js/jquery-1.11.0.min.js"></script>
+    <script th:src="@{./JQuery/jquery.js}"></script>
 	<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
 		crossorigin="anonymous"></script> -->
 		
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>		
 	<script src="js/plugins.js"></script>
-	<script src="js/script.js"></script>    
+	<script th:src="@{./js/script.js}"></script>   
+	<script th:src="@{./js/jajax.js}"></script> 
 </body>
 </html>

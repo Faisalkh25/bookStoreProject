@@ -160,13 +160,10 @@ $(document).ready(() => {
 		      }
 			  
 			//showing all the featured books dynamically		
-			if($('#featuredBookContainer').length)  {
+			if($('#featuredBooksContainer').length)  {
 				  loadFeaturedBooks();
 				  
-				         $(document).on('click', '.add-to-cart', function() {
-				             const bookId = $(this).data('book-id');
-				             addToCart(bookId);
-				         });
+				        
 			}
 			
 			function loadFeaturedBooks() {
@@ -177,7 +174,7 @@ $(document).ready(() => {
 							renderFeaturedBooks(books);
 						},
 						error: function(xhr, status, error) {
-						showAlert('Error deleting book: ' + error, 'danger');
+						showAlert('Error loading book: ' + error, 'danger');
 					  }
 					});
 			}
@@ -185,12 +182,12 @@ $(document).ready(() => {
 		  //render featured books
 		  
 		  function renderFeaturedBooks(books) {
-		 const container = 	$('#featuredBookContainer');
+		 const container = 	$('#featuredBooksContainer');
 		      container.empty();
 			  
-			 const featuredBooks =  books.slice(0,4);
+			/* const featuredBooks =  books.slice(0,4);*/
 			 
-			   featuredBooks.forEach(book => {
+			   books.forEach(book => {
 				    const bookHtml = `
 					      
 					      <div class="col-md-3">
@@ -198,14 +195,13 @@ $(document).ready(() => {
 							     <figure class="product-style">
 								      ${book.imagePath ? 
 									  `<img src="/uploads/${book.imagePath}" alt="${book.book_name}" 
-									  class="product-item">` : `<img src="/images/default-book.png" alt="no image" class="product-item">`} 
-									  <button type="button" class="add-to-cart" data-book-id="${book.book_id}">Add to
-									  											Cart</button>
+									  class="product-item">` : `<div class="no-image-placeholder"></div>`} 
+									
 								 </figure>
 								 <figcaption>
 								   <h3>${book.book_name}</h3>
 								   <span>${book.author}</span>
-								   <div class="item-price">${book.price}</div>
+								   <div class="item-price">₹${book.price}</div>
 								 </figcaption>
 							   </div>
 						  </div> 
@@ -215,6 +211,7 @@ $(document).ready(() => {
 			   });
 		  }
 		  
-		 
+		  /* <button type="button" class="add-to-cart" data-book-id="${book.book_id}">Add to
+		  								  											Cart</button>*/
 		 
 });	
